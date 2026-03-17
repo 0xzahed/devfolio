@@ -1,31 +1,73 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #090d14;
+  --foreground: #edf1f7;
+  --surface: #111723;
+  --accent-primary: #ff983f;
+  --accent-secondary: #4ce0cf;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-space);
+  --font-display: var(--font-syne);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #090d14;
+    --foreground: #edf1f7;
   }
 }
 
 body {
   min-height: 100vh;
   background:
-    radial-gradient(circle at 15% -10%, rgba(25, 36, 58, 0.5) 0%, rgba(25, 36, 58, 0) 42%),
-    radial-gradient(circle at 86% -20%, rgba(10, 101, 132, 0.28) 0%, rgba(10, 101, 132, 0) 38%),
+    radial-gradient(circle at 12% -15%, rgba(255, 152, 63, 0.24) 0%, rgba(255, 152, 63, 0) 40%),
+    radial-gradient(circle at 88% -22%, rgba(76, 224, 207, 0.18) 0%, rgba(76, 224, 207, 0) 36%),
+    radial-gradient(circle at 50% 120%, rgba(52, 68, 103, 0.35) 0%, rgba(52, 68, 103, 0) 50%),
     var(--background);
-  background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-geist-sans), "Segoe UI", Helvetica, Arial, sans-serif;
+  font-family: var(--font-space), "Segoe UI", Helvetica, sans-serif;
+}
+
+.font-display {
+  font-family: var(--font-syne), "Segoe UI", Helvetica, sans-serif;
+}
+
+.grid-noise {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(160deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0));
+  background-size: 32px 32px, 32px 32px, 100% 100%;
+}
+
+@keyframes slow-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pulse-glow {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(76, 224, 207, 0.18);
+  }
+  50% {
+    box-shadow: 0 0 0 8px rgba(76, 224, 207, 0);
+  }
+}
+
+.animate-slow-spin {
+  animation: slow-spin 16s linear infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 3.2s ease-in-out infinite;
 }

@@ -71,7 +71,7 @@ export default function Navbar() {
             href="/"
             className="shrink-0 rounded-xl border border-white/10 bg-black/45 px-4 py-2 text-xl font-semibold tracking-[-0.02em] text-white"
           >
-            devfolio
+            monogram
           </Link>
 
           <nav className="hidden items-center gap-1 lg:flex">
